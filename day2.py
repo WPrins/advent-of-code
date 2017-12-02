@@ -6,10 +6,10 @@ with open("day2Input.txt") as input:
     for line in data:
         smallest = line[0]
         largest = line[0]
-        for item in line:
-            if int(item) > int(largest):
-                largest = item
-            if int(item) < int(smallest):
-                smallest = item
-        result += (int(largest) - int(smallest))
+        for item1 in line:
+            for item2 in line:
+                if not(item2 is item1):
+                    fraction = float(item1)/float(item2)
+                    if fraction == round(fraction):
+                        result += int(fraction)
 print(result)
